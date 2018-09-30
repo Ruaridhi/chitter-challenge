@@ -9,6 +9,8 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/' do
+    PostPeep.post(params[:message])
+    @peeps = PostPeep.show
     erb :index
   end
 

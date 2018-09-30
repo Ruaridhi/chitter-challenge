@@ -13,13 +13,16 @@ feature 'index page' do
   end
 
   scenario 'user can post message on page'do
-  visit('/')
-  fill_in 'message', with: 'Peep me'
-  click_button 'Peep'
-  expect(page).to have_content("Peep me")
-  fill_in 'message', with: 'Fudge this'
-  click_button 'Peep'
-  expect(page).to have_content("Fudge this")
+    visit('/')
+    fill_in 'message', with: 'Peep me'
+    click_button 'Peep'
+  end
+  
+  scenario 'show the posted message'do
+    visit('/')
+    fill_in 'message', with: 'Fudge this'
+    click_button 'Peep'
+    expect(page).to have_content("Fudge this")
   end
 
   scenario 'viewing message from database on page' do
