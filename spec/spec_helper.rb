@@ -1,7 +1,7 @@
 ENV['RACK_ENV'] = 'test'
 # require File.expand_path('./chitter_app.rb', __dir__)
 require_relative '../chitter_app'
-# require_relative './setup_test_database'
+require_relative 'setup_test_database'
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
@@ -23,9 +23,9 @@ SimpleCov.start
 
 RSpec.configure do |config|
 
-  # config.before(:each) do
-  #   test_setup
-  # end
+  config.before(:each) do
+    test_setup
+  end
 
   config.after(:suite) do
     puts

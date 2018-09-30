@@ -24,7 +24,6 @@ feature 'index page' do
 
   scenario 'viewing message from database on page' do
     connection = PG.connect(dbname: 'peep_log_test')
-    connection.exec("TRUNCATE TABLE peeps;")
     connection.exec("INSERT INTO peeps (message) VALUES ('Peep me');")
     connection.exec("INSERT INTO peeps (message) VALUES ('Fudge this');")
 
