@@ -105,3 +105,15 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+
+Instructions
+
+1) Run bundle install before starting
+2) This uses a database installed with postgreSQL
+   brew install postgresql
+3) In command line;
+   psql
+   postgres=# CREATE DATABASE "chitter_database";
+   postgress=# \c chitter_database;
+   email, password, name and a username
+   postgress=# CREATE TABLE chitter_user (id SERIAL PRIMARY KEY, eamil VARCHAR(60), password VARCHAR(60), name VARCHAR(60), username VARCHAR(60));

@@ -1,0 +1,12 @@
+Welcome to Chitter
+
+<form action = "/" method = "get">
+  <input type = 'text' name = 'message'/>
+  <input type = "submit" value = "Peep"/>
+</form>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep %></li>
+  <% end %>
+</ul>
