@@ -17,7 +17,7 @@ feature 'index page' do
     fill_in 'message', with: 'Peep me'
     click_button 'Peep'
   end
-  
+
   scenario 'show the posted message'do
     visit('/')
     fill_in 'message', with: 'Fudge this'
@@ -34,5 +34,18 @@ feature 'index page' do
     expect(page).to have_content('Peep me')
     expect(page).to have_content('Fudge this')
   end
+
+  scenario 'messages come up on page last inputted first' do
+    visit('/')
+    fill_in 'message', with: 'First peep'
+    click_button 'Peep'
+    fill_in 'message', with: 'Second peep'
+    click_button 'Peep'
+    within('ul') do
+      expect(all('li')[0].text).to eq('Second peep')
+    end
+
+  end
+
 
 end

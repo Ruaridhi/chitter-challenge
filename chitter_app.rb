@@ -4,13 +4,13 @@ require './lib/chitter'
 # This is the controller for our Chitter app
 class ChitterApp < Sinatra::Base
   get '/' do
-    @peeps = PostPeep.show
+    @peeps = PostPeep.show.reverse
     erb :index
   end
 
   post '/' do
     PostPeep.post(params[:message])
-    @peeps = PostPeep.show
+    @peeps = PostPeep.show.reverse
     erb :index
   end
 
